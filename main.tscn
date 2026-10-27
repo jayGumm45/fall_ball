@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://clxdi3b7yplfn"]
+
+[ext_resource type="PackedScene" uid="uid://betmg6a5m6p5q" path="res://background_layer.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://sqhivh0wwaqq" path="res://tiles_layer.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ddrx2n0l7iqn7" path="res://player.tscn" id="3_lquwl"]
+
+[node name="Main" type="Node" unique_id=1202595502]
+
+[node name="TileMapLayer" parent="." unique_id=4052955 instance=ExtResource("1_h2yge")]
+
+[node name="TileMapLayer2" parent="." unique_id=12081607 instance=ExtResource("2_1bvp3")]
+
+[node name="CharacterBody2D" parent="." unique_id=1490147932 instance=ExtResource("3_lquwl")]
+position = Vector2(9, 135)
+scale = Vector2(0.25, 0.25)

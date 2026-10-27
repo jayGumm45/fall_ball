@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="fall_ball"
-run/main_scene="uid://ddrx2n0l7iqn7"
+run/main_scene="uid://clxdi3b7yplfn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=432
-window/size/viewport_height=224
+window/size/viewport_height=234
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
