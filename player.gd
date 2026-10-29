@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var rotation_acceleration: float = 30.0
+@export var maximum_rotation_speed: float = 500.0
+@export var gravity: float = 1200.0
+@export var jumping_velocity: float = -300.0
+@export var move_scale: float = 60.0
+
 var rotation_speed: float = 0.0
-var maximum_rotation_speed: float = 500.0
-var screen_size
-var gravity_constant = 0.2
-var gravity_speed = 0.0
-var jumping_initial_velocity = 2.0
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -19,26 +19,23 @@ func _input(event):
 		-maximum_rotation_speed, 
 		maximum_rotation_speed)
 			
-func _process(delta):
-	rotation_degrees += (rotation_speed * delta)
-	position.x += (rotation_speed / 100)
-	
-	screen_size = get_viewport_rect().size
-	
-	position.x = clamp(position.x, 64, screen_size.x - 64)
-	position.y = clamp(position.y, 64, screen_size.y - 64)
-	
-	if position.x == 64 or position.x == screen_size.x - 64:
-		rotation_speed = 0
+
 	
 func _physics_process(delta):
-	screen_size = get_viewport_rect().size
+	#Visual spin
+	rotation_degrees += rotation_speed * delta
 	
-	if Input.is_action_just_pressed("Jump") and position.y == screen_size.y - 64:
-		gravity_speed = -9
+	#Gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
+	#jump
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		velocity.y = jumping_velocity
 	
-	gravity_speed += gravity_constant
-	position.y += gravity_speed
+	velocity.x = rotation_speed / 100.0 * move_scale
 	
-	if position.y == screen_size.y - 64:
-		gravity_speed = 0
+	move_and_slide()
+	
+	if is_on_wall():
+		rotation_speed = 0.0
