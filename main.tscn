@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://clxdi3b7yplfn"]
 
+[ext_resource type="PackedScene" uid="uid://bgb8j2hcjkkdl" path="res://HUD.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://betmg6a5m6p5q" path="res://background_layer.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://sqhivh0wwaqq" path="res://tiles_layer.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ddrx2n0l7iqn7" path="res://player.tscn" id="3_lquwl"]
 
 [node name="Main" type="Node" unique_id=1202595502]
+
+[node name="CanvasLayer" parent="." unique_id=1666789597 instance=ExtResource("1_1bvp3")]
 
 [node name="TileMapLayer" parent="." unique_id=4052955 instance=ExtResource("1_h2yge")]
 

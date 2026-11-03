@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bgb8j2hcjkkdl"]
+
+[ext_resource type="Script" uid="uid://mnwrfboa315m" path="res://canvas_layer.gd" id="1_efote"]
+[ext_resource type="Texture2D" uid="uid://c53e1llkwt8c8" path="res://art/tilemap.png" id="2_vow1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8mpy"]
+atlas = ExtResource("2_vow1y")
+region = Rect2(133, 19, 18, 18)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1666789597]
+script = ExtResource("1_efote")
+
+[node name="KeyIcon" type="TextureRect" parent="." unique_id=627950048]
+texture_filter = 1
+offset_left = 72.0
+offset_right = 90.0
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_t8mpy")
