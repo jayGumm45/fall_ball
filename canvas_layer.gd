@@ -8,4 +8,4 @@ func _ready() -> void:
 	GameState.key_collected.connect(_on_key_collected)
 
 func _on_key_collected() -> void:
-	key_icon.visibile = true
+	key_icon.visible = true
