@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx0hjeaasa5kc" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b160as62yypru" path="res://ball_blue_small_with_eyes.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://b4cs8afhrcqpr" path="res://art/footstep_grass_003.ogg" id="3_i3pqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j0d3"]
 radius = 32.0
@@ -16,3 +17,7 @@ texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210962080]
 shape = SubResource("CircleShape2D_3j0d3")
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="." unique_id=1543163643]
+stream = ExtResource("3_i3pqv")
+volume_db = 8.0

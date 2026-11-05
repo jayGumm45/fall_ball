@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5m52qcfc12ls"]
+
+[ext_resource type="AudioStream" uid="uid://bvmcldv4jsgqp" path="res://art/jonasblakewood-background-music-618629.mp3" id="1_5vxup"]
+[ext_resource type="Script" uid="uid://cntppsj07ta7f" path="res://audio_stream_player.gd" id="2_w5q55"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1660664856]
+stream = ExtResource("1_5vxup")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_w5q55")

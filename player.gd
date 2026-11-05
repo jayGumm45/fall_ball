@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var land_sound: AudioStreamPlayer2D = $LandSound
+
 @export var rotation_acceleration: float = 150.0
 @export var maximum_rotation_speed: float = 300.0
 @export var gravity: float = 1200.0
@@ -11,8 +13,12 @@ var starting_position: Vector2
 
 var rotation_speed: float = 0.0
 
+var was_on_floor := false
+
+
 func _ready() -> void:
 	starting_position = global_position
+
 
 func _physics_process(delta):
 	#Visual spin
@@ -22,7 +28,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	#jump
-	var total = 0
+	#var total = 0
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jumping_velocity
 	#Rotate left
@@ -49,6 +55,10 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		rotation = 0.0
 		
+	if is_on_floor() and not was_on_floor:
+		land_sound.play()
+	
+	was_on_floor = is_on_floor()
 	
 	_check_locked_tiles()
 	
