@@ -5,9 +5,14 @@ extends CharacterBody2D
 @export var gravity: float = 1200.0
 @export var jumping_velocity: float = -300.0
 @export var move_scale: float = 60.0
-@export var rotation_friction: float = 50.0
+@export var rotation_friction: float = 50.
+
+var starting_position: Vector2
 
 var rotation_speed: float = 0.0
+
+func _ready() -> void:
+	starting_position = global_position
 
 func _physics_process(delta):
 	#Visual spin
@@ -37,6 +42,13 @@ func _physics_process(delta):
 	velocity.x = rotation_speed / 100.0 * move_scale
 	
 	move_and_slide()
+	
+	if global_position.y > 1000:
+		global_position = starting_position
+		rotation_speed = 0.0
+		velocity = Vector2.ZERO
+		rotation = 0.0
+		
 	
 	_check_locked_tiles()
 	
