@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var gravity: float = 1200.0
 @export var jumping_velocity: float = -300.0
 @export var move_scale: float = 60.0
-@export var rotation_friction: float = 50.
+@export var rotation_friction: float = 50.0
 
 var starting_position: Vector2
 

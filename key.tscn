@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu6pwv1w5hyg8" path="res://key.gd" id="1_up4cr"]
 [ext_resource type="Texture2D" uid="uid://c53e1llkwt8c8" path="res://art/tilemap.png" id="2_p0yg6"]
+[ext_resource type="AudioStream" uid="uid://blv2cyotcbi68" path="res://key_sound.mp3" id="3_krfvd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efote"]
 atlas = ExtResource("2_p0yg6")
@@ -17,5 +18,9 @@ texture = SubResource("AtlasTexture_efote")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=960734013]
 shape = SubResource("RectangleShape2D_t8mpy")
+
+[node name="KeySound" type="AudioStreamPlayer2D" parent="." unique_id=2133754938]
+stream = ExtResource("3_krfvd")
+volume_db = 24.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
