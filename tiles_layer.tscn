@@ -48,6 +48,7 @@ texture_region_size = Vector2i(18, 18)
 7:1/0 = 0
 8:1/0 = 0
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
+8:1/0/custom_data_0 = true
 9:1/0 = 0
 10:1/0 = 0
 11:1/0 = 0
@@ -215,6 +216,8 @@ texture_region_size = Vector2i(18, 18)
 [sub_resource type="TileSet" id="TileSet_t8mpy"]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "locked"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_0ugm7")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t8mpy"]

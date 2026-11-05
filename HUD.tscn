@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgb8j2hcjkkdl"]
 
-[ext_resource type="Script" uid="uid://mnwrfboa315m" path="res://canvas_layer.gd" id="1_efote"]
+[ext_resource type="Script" uid="uid://mnwrfboa315m" path="res://HUD.gd" id="1_efote"]
 [ext_resource type="Texture2D" uid="uid://c53e1llkwt8c8" path="res://art/tilemap.png" id="2_vow1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8mpy"]

@@ -38,5 +38,20 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	_check_locked_tiles()
+	
 	if is_on_wall():
 		rotation_speed = 0.0
+
+func _check_locked_tiles() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var tilemap := collision.get_collider() as TileMapLayer
+		if tilemap == null:
+			continue
+		var hit_pos := collision.get_position() - collision.get_normal() * 1.0
+		var cell := tilemap.local_to_map(tilemap.to_local(hit_pos))
+		var data := tilemap.get_cell_tile_data(cell)
+		if data and data.get_custom_data("locked") and GameState.has_key:
+			tilemap.erase_cell(cell)
+			GameState.use_key()
