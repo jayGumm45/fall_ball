@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx0hjeaasa5kc" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b160as62yypru" path="res://ball_blue_small_with_eyes.png" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://b4cs8afhrcqpr" path="res://art/footstep_grass_003.ogg" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cf53ir6sxtii1" path="res://Dirt Particle-frame0.png" id="4_hqtel"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j0d3"]
 radius = 32.0
@@ -21,3 +22,17 @@ shape = SubResource("CircleShape2D_3j0d3")
 [node name="LandSound" type="AudioStreamPlayer2D" parent="." unique_id=1543163643]
 stream = ExtResource("3_i3pqv")
 volume_db = 8.0
+
+[node name="BallParticles" type="CPUParticles2D" parent="." unique_id=59774649]
+position = Vector2(1, 30)
+amount = 2
+texture = ExtResource("4_hqtel")
+lifetime = 0.2
+explosiveness = 0.6
+randomness = 0.7
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.02
+scale_amount_max = 0.03

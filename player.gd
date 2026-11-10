@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var land_sound: AudioStreamPlayer2D = $LandSound
+@onready var ball_particles: CPUParticles2D = $BallParticles
 
 @export var rotation_acceleration: float = 150.0
 @export var maximum_rotation_speed: float = 300.0
@@ -26,9 +27,14 @@ func _physics_process(delta):
 	#Visual spin
 	rotation_degrees += rotation_speed * delta
 	
+	ball_particles.global_position = global_position + Vector2(0, 8)
+	ball_particles.global_rotation = 0.0
+	ball_particles.emitting = abs(rotation_speed) > 10.0
+	
 	#Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		ball_particles.emitting = false
 	#jump
 	#var total = 0
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -51,12 +57,14 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	#resets ball
 	if global_position.y > 1000:
 		take_damage()
 		global_position = starting_position
 		rotation_speed = 0.0
 		velocity = Vector2.ZERO
 		rotation = 0.0
+		ball_particles.emitting = false
 		
 	if is_on_floor() and not was_on_floor:
 		land_sound.play()
@@ -67,6 +75,7 @@ func _physics_process(delta):
 	
 	if is_on_wall():
 		rotation_speed = 0.0
+		
 
 func take_damage(amount := 1) -> void:
 	if invincible:
