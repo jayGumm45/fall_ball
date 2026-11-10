@@ -7,11 +7,30 @@
 atlas = ExtResource("2_vow1y")
 region = Rect2(133, 19, 18, 18)
 
+[sub_resource type="GDScript" id="GDScript_efote"]
+script/source = "extends HBoxContainer
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1666789597]
 script = ExtResource("1_efote")
 
 [node name="KeyIcon" type="TextureRect" parent="." unique_id=627950048]
 texture_filter = 1
-offset_right = 18.0
+offset_left = 70.0
+offset_right = 88.0
 offset_bottom = 18.0
 texture = SubResource("AtlasTexture_t8mpy")
+
+[node name="Hearts" type="HBoxContainer" parent="." unique_id=1963354181]
+offset_right = 52.0
+offset_bottom = 18.0
+script = SubResource("GDScript_efote")

@@ -12,8 +12,6 @@
 [node name="AudioStreamPlayer" parent="." unique_id=1660664856 instance=ExtResource("1_7mycd")]
 
 [node name="CanvasLayer" parent="." unique_id=1666789597 instance=ExtResource("1_1bvp3")]
-offset = Vector2(72, 0)
-transform = Transform2D(1, 0, 0, 1, 72, 0)
 
 [node name="TileMapLayer" parent="." unique_id=4052955 instance=ExtResource("1_h2yge")]
 

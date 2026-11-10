@@ -21,6 +21,6 @@ shape = SubResource("RectangleShape2D_t8mpy")
 
 [node name="KeySound" type="AudioStreamPlayer2D" parent="." unique_id=2133754938]
 stream = ExtResource("3_krfvd")
-volume_db = 24.0
+volume_db = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

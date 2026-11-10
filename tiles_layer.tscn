@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://sqhivh0wwaqq"]
 
 [ext_resource type="Texture2D" uid="uid://c53e1llkwt8c8" path="res://art/tilemap.png" id="1_l0sh5"]
+[ext_resource type="Script" uid="uid://cspdwpb0ynaj4" path="res://win_flag.gd" id="2_7momg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ugm7"]
 texture = ExtResource("1_l0sh5")
@@ -220,11 +221,21 @@ custom_data_layer_0/name = "locked"
 custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_0ugm7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8mpy"]
+size = Vector2(20, 36)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t8mpy"]
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=12081607]
 tile_map_data = PackedByteArray("AAAAAAgAAgABAAEAAAABAAgAAgACAAEAAAACAAgAAgACAAEAAAADAAgAAgACAAEAAAAEAAgAAgACAAEAAAAFAAgAAgADAAEAAAAFAAkAAgADAAcAAAAEAAkAAgACAAcAAAADAAkAAgACAAcAAAACAAkAAgACAAcAAAABAAkAAgACAAcAAAAAAAkAAgABAAcAAAAHAAkAAgABAAEAAAAIAAkAAgACAAEAAAAJAAkAAgACAAEAAAAKAAkAAgACAAEAAAALAAkAAgACAAEAAAANAAkAAgAEAAEAAAARAAgAAgABAAEAAAASAAgAAgACAAEAAAATAAgAAgACAAEAAAAUAAgAAgACAAEAAAAWAAgAAgAEAAAAAAAHAAoAAgABAAcAAAAIAAoAAgACAAcAAAAJAAoAAgACAAcAAAAKAAoAAgACAAcAAAALAAoAAgACAAcAAAAMAAoAAgACAAcAAAANAAoAAgAFAAAAAAAOAAoAAgAEAAEAAAAOAAsAAgAFAAAAAAAPAAoAAgADAAcAACAPAAsAAgAEAAEAAAARAAkAAgABAAcAAAASAAkAAgACAAcAAAATAAkAAgACAAcAAAAUAAkAAgACAAcAAAAVAAkAAgACAAcAAAAWAAkAAgADAAcAAAARAAsAAgACAAcAACASAAsAAgACAAcAACATAAsAAgACAAcAACAUAAsAAgACAAcAACAVAAsAAgACAAcAACAWAAsAAgACAAcAACAXAAsAAgADAAcAACAWAAwAAgACAAcAAAAVAAwAAgACAAcAAAAUAAwAAgACAAcAAAATAAwAAgACAAcAAAASAAwAAgACAAcAAAAQAAwAAgACAAcAAAARAAwAAgACAAcAAAAPAAwAAgACAAcAAAAOAAwAAgABAAcAAAAQAAsAAgACAAcAACAXAAwAAgADAAcAAAAWAAcAAgACAAEAAAAXAAcAAgADAAEAAAAXAAgAAgADAAcAAAAXAAoAAgALAAYAAAAXAAkAAgALAAUAAAAVAAcAAgABAAEAAAAVAAgAAgAFAAEAAAAMAAkAAgAFAAEAAAAMAAgAAgABAAEAAAANAAgAAgADAAEAAAAOAAkAAgADAAEAAAANAAsAAgABAAcAAAAQAAoAAgAIAAEAAAA=")
 tile_set = SubResource("TileSet_t8mpy")
+
+[node name="WinFlag" type="Area2D" parent="." unique_id=1840074818]
+script = ExtResource("2_7momg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinFlag" unique_id=1945465664]
+position = Vector2(422, 180)
+shape = SubResource("RectangleShape2D_t8mpy")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=855678737]
 
@@ -238,3 +249,5 @@ position = Vector2(432, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1400218838]
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_t8mpy")
+
+[connection signal="body_entered" from="WinFlag" to="WinFlag" method="_on_body_entered"]

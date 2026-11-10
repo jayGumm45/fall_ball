@@ -15,6 +15,8 @@ var rotation_speed: float = 0.0
 
 var was_on_floor := false
 
+var invincible := false
+
 
 func _ready() -> void:
 	starting_position = global_position
@@ -50,6 +52,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if global_position.y > 1000:
+		take_damage()
 		global_position = starting_position
 		rotation_speed = 0.0
 		velocity = Vector2.ZERO
@@ -64,6 +67,14 @@ func _physics_process(delta):
 	
 	if is_on_wall():
 		rotation_speed = 0.0
+
+func take_damage(amount := 1) -> void:
+	if invincible:
+		return
+	invincible = true
+	GameState.damage(amount)
+	await get_tree().create_timer(1.0).timeout
+	invincible = false
 
 func _check_locked_tiles() -> void:
 	for i in get_slide_collision_count():
