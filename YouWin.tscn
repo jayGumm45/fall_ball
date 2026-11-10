@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://deyfm1opmtyyl"]
+
+[ext_resource type="Texture2D" uid="uid://bua4y426cpow8" path="res://art/you_win.png" id="1_oruqf"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=183896378]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=876052327]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_oruqf")

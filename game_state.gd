@@ -6,10 +6,20 @@ signal key_used
 signal health_changed(current: int, maximum: int)
 signal player_died
 
+signal won
+
 var has_key := false
+
+var has_won := false
 
 var max_health := 6
 var health := 6
+
+func win() -> void:
+	if has_won:
+		return
+	has_won = true
+	won.emit()
 
 func collect_key() -> void:
 	if has_key:

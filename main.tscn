@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://sqhivh0wwaqq" path="res://tiles_layer.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ddrx2n0l7iqn7" path="res://player.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://82mww06ofsr8" path="res://key.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://deyfm1opmtyyl" path="res://YouWin.tscn" id="8_kek77"]
+[ext_resource type="Script" uid="uid://b7jvd3bos7mr3" path="res://you_win.gd" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://d4nt6bvffvja3" path="res://YouLose.tscn" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://djucgj8elqn4c" path="res://you_lose.gd" id="11_dg77c"]
 
 [node name="Main" type="Node" unique_id=1202595502]
 
@@ -23,3 +27,11 @@ position = Vector2(422, 116)
 [node name="CharacterBody2D" parent="." unique_id=1490147932 instance=ExtResource("3_lquwl")]
 position = Vector2(9, 135)
 scale = Vector2(0.25, 0.25)
+
+[node name="YouWin" parent="." unique_id=183896378 instance=ExtResource("8_kek77")]
+visible = false
+script = ExtResource("9_4c57u")
+
+[node name="YouLose" parent="." unique_id=1907552288 instance=ExtResource("10_efxa6")]
+visible = false
+script = ExtResource("11_dg77c")
