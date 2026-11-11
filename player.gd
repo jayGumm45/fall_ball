@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var land_sound: AudioStreamPlayer2D = $LandSound
 @onready var ball_particles: CPUParticles2D = $BallParticles
+@onready var door_sound: AudioStreamPlayer2D = $DoorSound
 
 @export var rotation_acceleration: float = 150.0
 @export var maximum_rotation_speed: float = 300.0
@@ -95,5 +96,6 @@ func _check_locked_tiles() -> void:
 		var cell := tilemap.local_to_map(tilemap.to_local(hit_pos))
 		var data := tilemap.get_cell_tile_data(cell)
 		if data and data.get_custom_data("locked") and GameState.has_key:
+			door_sound.play()
 			tilemap.erase_cell(cell)
 			GameState.use_key()

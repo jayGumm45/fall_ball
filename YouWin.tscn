@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://deyfm1opmtyyl"]
 
 [ext_resource type="Texture2D" uid="uid://bua4y426cpow8" path="res://art/you_win.png" id="1_oruqf"]
+[ext_resource type="AudioStream" uid="uid://53ic2k8nq8le" path="res://art/scratchonix-victory-chime-366449.mp3" id="2_jac7q"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=183896378]
 
@@ -8,3 +9,8 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_oruqf")
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="." unique_id=1236665114]
+stream = ExtResource("2_jac7q")
+volume_db = -2.0
+parameters/looping = true

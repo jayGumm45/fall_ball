@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4nt6bvffvja3"]
 
 [ext_resource type="Texture2D" uid="uid://c46fkev1q5ife" path="res://art/you_lose.png" id="1_6vb8b"]
+[ext_resource type="AudioStream" uid="uid://bxek1l0iucopu" path="res://art/kuzu420-game-over-284367.mp3" id="2_c5pg7"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1907552288]
 
@@ -8,3 +9,8 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_6vb8b")
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=2097235424]
+stream = ExtResource("2_c5pg7")
+volume_db = 12.0
+parameters/looping = true
