@@ -45,7 +45,9 @@ func heal(amount := 1) -> void:
 	
 func reset() -> void:
 	health = max_health
+	has_won = false
 	has_key = false
+	health_changed.emit(health, max_health)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

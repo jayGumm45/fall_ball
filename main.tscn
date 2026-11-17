@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bgb8j2hcjkkdl" path="res://HUD.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://5m52qcfc12ls" path="res://music.tscn" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://m2gxrjk4ku8s" path="res://main.gd" id="1_efxa6"]
 [ext_resource type="PackedScene" uid="uid://betmg6a5m6p5q" path="res://background_layer.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://sqhivh0wwaqq" path="res://tiles_layer.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ddrx2n0l7iqn7" path="res://player.tscn" id="3_lquwl"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" uid="uid://djucgj8elqn4c" path="res://you_lose.gd" id="11_dg77c"]
 
 [node name="Main" type="Node" unique_id=1202595502]
+script = ExtResource("1_efxa6")
 
 [node name="AudioStreamPlayer" parent="." unique_id=1660664856 instance=ExtResource("1_7mycd")]
 
