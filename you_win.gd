@@ -8,6 +8,6 @@ func _ready() -> void:
 
 
 func _on_win() -> void:
-	visible = true
 	get_tree().paused = true
+	visible = true
 	win_sound.play()
